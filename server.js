@@ -7,16 +7,24 @@ const app = express();
 
 
 app.use(morgan('common'));
+app.use(express.static('public')); 
 
 // These code snippets use an open-source library. http://unirest.io/nodejs
+
+let result;
+
 unirest.get('https://trailapi-trailapi.p.mashape.com/?limit=1&lon=-&q[activities_activity_type_name_eq]=hiking&q[city_cont]=Colorado+Springs&q[country_cont]=United+States&q[state_cont]=Colorado&radius=10')
   .header('X-Mashape-Key', 'jvHLN2ffP4mshDADMnyUd0OkSXaXp16hQKqjsnIpARwMYTtPWp')
   .header('Accept', 'text/plain')
   .end(function (result) {
     console.log(result.body);
+    return result.body;
   });
 
-
+app.get('/', (req, res) => {
+  console.log(result.body);
+  res.json(result.body);
+});
   
 let server;
 
