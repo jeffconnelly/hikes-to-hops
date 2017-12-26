@@ -1,9 +1,21 @@
 'use strict';
+/* global $ */
 
 
-const clientKey = 'nxJ4T31JaYmshZujaPeoLhL0g2lop1H7pi9jsn51LSvRMryZte';
+
+function watchSubmit () {
+  $('.location').submit(event => {
+    event.preventDefault();
+    let searchTarget = $(event.currentTarget).find('.location-input');
+    let searchTerm = searchTarget.val();
+    console.log(searchTerm);
+    searchTarget.val('');
+  });
+}
 
 
+
+$(watchSubmit);
 
 // search(query, success) {
 //   const url = this._buildUrl(this.path, query);
