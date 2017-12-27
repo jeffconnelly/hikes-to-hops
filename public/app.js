@@ -3,6 +3,32 @@
 
 
 
+
+
+
+//Api Call functions
+const url = 'http://localhost:8080/?';
+
+// fetch('http://localhost:8080/?')
+//   .then(res => {
+//     console.log(res);
+//     return res;
+//   });
+
+fetch('http://localhost:8080/?').then(function(response) {
+  console.log(response);
+});
+
+// fetch(url)
+//   .then(res => {
+//     return res.json();
+//   }).then(res => {
+//     console.log(res.title);
+//   });
+
+
+
+//Event listeners
 function watchSubmit () {
   $('.location').submit(event => {
     event.preventDefault();
