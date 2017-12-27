@@ -7,7 +7,7 @@
 
 
 //Api Call functions
-const url = 'https://www.hikingproject.com/data/get-trails';
+let url = 'https://www.hikingproject.com/data/get-trails';
 const key = '200199905-b7938b4b6909a70a6393d4285aca8a47';
 let lat = '';
 let long = '';
@@ -42,6 +42,8 @@ function renderResult(data) {
 
   if (data.imgSmallMed !== '') {
     return ` 
+    <h3>${data.name}</h3>
+    <p>${data.summary}</p>
     <img class="trails-thumbnail js-thumbnail" src="${data.imgSmallMed}">
     `;
   }
@@ -61,18 +63,25 @@ function watchSubmit () {
     // long = results[0].geometry.location.lng();
     // lat = lat.toString();
     // long = long.toString();
+    // url = `
+    // https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${long}&maxDistance=10&key=200199905-b7938b4b6909a70a6393d4285aca8a47
+    // `;
+    // function trailsFetch(url) {
+
+    // }
 
     fetch(`
     https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${long}&maxDistance=10&key=200199905-b7938b4b6909a70a6393d4285aca8a47
     `)
       .then(res => {
         return res.json();
-      }).then(res => {
-        trailsData = res;
-        return trailsData;
       }).then(trailsData => {
         console.log(trailsData);
+        console.log('fetching data');
         displayTrailsData(trailsData);
+      })
+      .catch(function(err){
+        console.log('This went wrong:', err);
       });
   });
 }
