@@ -25,19 +25,7 @@ let long = '';
 // };
 let trailsData = [];
 
-fetch('https://www.hikingproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=10&key=200199905-b7938b4b6909a70a6393d4285aca8a47')
-  .then(res => {
-    return res.json();
-  }).then(res => {
-    console.log(res);
-    trailsData = res;
-    console.log(trailsData);
-    return trailsData;
-  }).then(trailsData => {
-    console.log(trailsData);
-    displayTrailsData(trailsData);
 
-  });
 
 
 
@@ -52,7 +40,7 @@ function displayTrailsData(data) {
 function renderResult(data) {
   console.log(data);
   return ` 
-  <img class="trails-thumbnail js-thumbnail" src="${data.imgSmall}">
+  <img class="trails-thumbnail js-thumbnail" src="${data.imgSmallMed}">
 
   `;
 }
@@ -66,6 +54,18 @@ function watchSubmit () {
     console.log(searchTerm);
     searchTarget.val('');
     handleSubmit(searchTerm);
+
+
+    fetch('https://www.hikingproject.com/data/get-trails?lat=38.8338816&lon=-104.8213634&maxDistance=10&key=200199905-b7938b4b6909a70a6393d4285aca8a47')
+      .then(res => {
+        return res.json();
+      }).then(res => {
+        trailsData = res;
+        return trailsData;
+      }).then(trailsData => {
+        console.log(trailsData);
+        displayTrailsData(trailsData);
+      });
   });
 }
 
