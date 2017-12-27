@@ -22,9 +22,12 @@ let result;
 app.get('/', (req, res) => {
   // const item = Request.body;
   console.log('request made!');
+  console.log(bodyResult);
   // console.log(item);
-  res.json(Request);
+  res.json(bodyResult);
 });
+
+let bodyResult;
 
 let Request;
 //Capture API Data from TrailAPI
@@ -33,11 +36,13 @@ Request = unirest.get('https://trailapi-trailapi.p.mashape.com/?limit=1&lon=-&q[
   .header('Accept', 'text/plain')
   .end(function (result) {
     // console.log(result.body);
-    return result.body;
+    bodyResult = result.body;
+    // console.log(bodyResult);
+    return bodyResult;
   });
 
-  
 
+console.log(Request.body);
 
 //Server functions
 // let server;
