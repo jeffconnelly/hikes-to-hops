@@ -42,7 +42,6 @@ Request = unirest.get('https://trailapi-trailapi.p.mashape.com/?limit=1&lon=-&q[
   });
 
 
-console.log(Request.body);
 
 //Server functions
 // let server;

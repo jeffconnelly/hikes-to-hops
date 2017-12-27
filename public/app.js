@@ -39,10 +39,12 @@ function displayTrailsData(data) {
 //Render function
 function renderResult(data) {
   console.log(data);
-  return ` 
-  <img class="trails-thumbnail js-thumbnail" src="${data.imgSmallMed}">
 
-  `;
+  if (data.imgSmallMed !== '') {
+    return ` 
+    <img class="trails-thumbnail js-thumbnail" src="${data.imgSmallMed}">
+    `;
+  }
 }
 
 //Event listeners
@@ -54,9 +56,15 @@ function watchSubmit () {
     console.log(searchTerm);
     searchTarget.val('');
     handleSubmit(searchTerm);
+    console.log(lat);
+    // lat = results[0].geometry.location.lat();
+    // long = results[0].geometry.location.lng();
+    // lat = lat.toString();
+    // long = long.toString();
 
-
-    fetch('https://www.hikingproject.com/data/get-trails?lat=38.8338816&lon=-104.8213634&maxDistance=10&key=200199905-b7938b4b6909a70a6393d4285aca8a47')
+    fetch(`
+    https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${long}&maxDistance=10&key=200199905-b7938b4b6909a70a6393d4285aca8a47
+    `)
       .then(res => {
         return res.json();
       }).then(res => {
@@ -78,6 +86,9 @@ function handleSubmit (searchTerm) {
       alert('location : ' + results[0].geometry.location.lat() + ' ' +results[0].geometry.location.lng()); 
       lat = results[0].geometry.location.lat();
       long = results[0].geometry.location.lng();
+      lat = lat.toString();
+      long = long.toString();
+      console.log(lat);
     } else {
       alert('Something got wrong ' + status);
     }
