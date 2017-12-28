@@ -11,23 +11,6 @@ let url = 'https://www.hikingproject.com/data/get-trails';
 const key = '200199905-b7938b4b6909a70a6393d4285aca8a47';
 let lat = '';
 let long = '';
-// fetch('http://localhost:8080/?')
-//   .then(res => {
-//     console.log(res);
-//     return res;
-//   });
-
-// let fetchInfo = {
-//   method: 'GET',
-//   key: '200199905-b7938b4b6909a70a6393d4285aca8a47',
-//   lat: lat,
-//   long: long
-// };
-let trailsData = [];
-
-
-
-
 
 //Display function for render
 function displayTrailsData(data) {
@@ -58,18 +41,23 @@ function watchSubmit () {
     console.log(searchTerm);
     searchTarget.val('');
     handleSubmit(searchTerm);
-    console.log(lat);
-    // lat = results[0].geometry.location.lat();
-    // long = results[0].geometry.location.lng();
-    // lat = lat.toString();
-    // long = long.toString();
-    // url = `
-    // https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${long}&maxDistance=10&key=200199905-b7938b4b6909a70a6393d4285aca8a47
-    // `;
-    // function trailsFetch(url) {
+  });
+}
 
-    // }
-
+function handleSubmit (searchTerm) {
+  console.log(searchTerm);
+  let geocoder =  new google.maps.Geocoder();
+  geocoder.geocode( { 'address': `${searchTerm}`}, function(results, status) {
+    lat = results[0].geometry.location.lat();
+    long = results[0].geometry.location.lng();
+    lat = lat.toString();
+    long = long.toString();
+    if (status == google.maps.GeocoderStatus.OK) {
+      console.log('location : ' + results[0].geometry.location.lat() + ' ' +results[0].geometry.location.lng());
+      console.log(lat);
+    } else {
+      alert('Something got wrong ' + status);
+    }
     fetch(`
     https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${long}&maxDistance=10&key=200199905-b7938b4b6909a70a6393d4285aca8a47
     `)
@@ -83,48 +71,9 @@ function watchSubmit () {
       .catch(function(err){
         console.log('This went wrong:', err);
       });
+    return lat, long;
   });
 }
-
-function handleSubmit (searchTerm) {
-  console.log(searchTerm);
-  let geocoder =  new google.maps.Geocoder();
-  geocoder.geocode( { 'address': `${searchTerm}`}, function(results, status) {
-    if (status == google.maps.GeocoderStatus.OK) {
-      console.log('location : ' + results[0].geometry.location.lat() + ' ' +results[0].geometry.location.lng());
-      alert('location : ' + results[0].geometry.location.lat() + ' ' +results[0].geometry.location.lng()); 
-      lat = results[0].geometry.location.lat();
-      long = results[0].geometry.location.lng();
-      lat = lat.toString();
-      long = long.toString();
-      console.log(lat);
-    } else {
-      alert('Something got wrong ' + status);
-    }
-  });
-}
-
-// $('#btn').click(function(){
-//   let geocoder =  new google.maps.Geocoder();
-//   geocoder.geocode( { 'address': 'miami, us'}, function(results, status) {
-//     if (status == google.maps.GeocoderStatus.OK) {
-//       alert('location : ' + results[0].geometry.location.lat() + ' ' +results[0].geometry.location.lng()); 
-//     } else {
-//       alert('Something got wrong ' + status);
-//     }
-//   });
-// });
-
 
 
 $(watchSubmit);
-
-// search(query, success) {
-//   const url = this._buildUrl(this.path, query);
-//   return $.ajax({
-//     type: 'GET',
-//     url: url,
-//     data: query,
-//     success: success
-//   });
-// }
