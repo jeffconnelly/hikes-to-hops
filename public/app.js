@@ -2,10 +2,6 @@
 /* global $ */
 
 
-
-
-
-
 //Api Call functions
 let url = 'https://www.hikingproject.com/data/get-trails';
 const key = '200199905-b7938b4b6909a70a6393d4285aca8a47';
@@ -28,6 +24,8 @@ function renderResult(data) {
     <h3>${data.name}</h3>
     <p>${data.summary}</p>
     <img class="trails-thumbnail js-thumbnail" src="${data.imgSmallMed}">
+
+    <button type="button" class="js-brewify-btn">Brewify!</button>
     `;
   }
 }
@@ -41,6 +39,12 @@ function watchSubmit () {
     console.log(searchTerm);
     searchTarget.val('');
     handleSubmit(searchTerm);
+  });
+}
+
+function watchBrewifySubmit () {
+  $('.js-brewify-btn').click(event => {
+    
   });
 }
 
