@@ -36,15 +36,26 @@ function watchSubmit () {
     event.preventDefault();
     let searchTarget = $(event.currentTarget).find('.location-input');
     let searchTerm = searchTarget.val();
-    console.log(searchTerm);
     searchTarget.val('');
     handleSubmit(searchTerm);
   });
 }
 
 function watchBrewifySubmit () {
-  $('.js-brewify-btn').click(event => {
-    
+  $('.js-search-results').on('click', '.js-brewify-btn', event => {
+    event.preventDefault();
+    console.log('clicked!');
+    fetch(`
+    http://api.brewerydb.com/v2/search/geo/point?key=a46cc55cb2a68b32c91f696bc888b5e5lat=35.772096&lng=-78.638614
+    `)
+      .then(res => {
+        return res.json();
+      }).then(brewData => {
+        console.log(brewData);
+      })
+      .catch(function(err){
+        console.log('This went wrong:', err);
+      });
   });
 }
 
@@ -81,3 +92,4 @@ function handleSubmit (searchTerm) {
 
 
 $(watchSubmit);
+$(watchBrewifySubmit);
