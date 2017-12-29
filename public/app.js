@@ -51,7 +51,9 @@ function renderResult(data) {
           <span class="close js-close"> &times; </span>
           <img class="modal-content-img" src="">
           <img class="modal-content-img-2" src="https://images.unsplash.com/photo-1505075106905-fb052892c116?auto=format&fit=crop&w=1050&q=80">
-          <p class="modal-description">Boom! We've paired your trip to <span class="modal-description-highlight">${data.name}</span> with <span class="random-brewery-description modal-description-highlight"></span> for your journey's end!</p>
+          <div class="hidden-text">
+          <p class="modal-description hide">Boom! We've paired your trip to <span class="modal-description-highlight">${data.name}</span> with <span class="random-brewery-description modal-description-highlight"></span> for your journey's end!</p>
+          </div>
         </div>   
       </div>
     </div>
@@ -125,6 +127,7 @@ function watchBrewifySubmit () {
     $('.modal-description-highlight').text(source2);
     $('.lightbox').show();
     $('.modal').show();
+    $('.modal-description').show();
   });
 }
 
