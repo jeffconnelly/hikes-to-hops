@@ -8,12 +8,18 @@ const key = '200199905-b7938b4b6909a70a6393d4285aca8a47';
 let lat = '';
 let long = '';
 
-//Display function for render
+//Display functions for render
 function displayTrailsData(data) {
   console.log(data);
   const results = data.trails.map((item) => renderResult(item));
   $('.js-search-results').html(results);
 }
+
+// funciton DisplayBreweryData(data) {
+//   console.log(data);
+//   const results = 
+// }
+
 
 //Render function
 function renderResult(data) {
@@ -33,13 +39,19 @@ function renderResult(data) {
 function renderBrewery(data) {
   return `
   <img class="brew-thumbnail js-thumbnail2" src="${data.imgSmallMed}">
-  `
+  `;
 }
+
+
+//jQuery scroll content
+let position = $('.result-content').offset().top;
+
 
 //Event listeners
 function watchSubmit () {
   $('.location').submit(event => {
     event.preventDefault();
+    position = $('.result-content').offset().top; $('HTML, BODY').animate({ scrollTop: position }, 1000); 
     let searchTarget = $(event.currentTarget).find('.location-input');
     let searchTerm = searchTarget.val();
     searchTarget.val('');
