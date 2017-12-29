@@ -15,12 +15,14 @@ function displayTrailsData(data) {
   $('.js-search-results').html(results);
 }
 
-// funciton DisplayBreweryData(data) {
-//   console.log(data);
-//   const results = 
-// }
+function displayBreweryData(data) {
+  console.log(data);
+  const results = data.data.map((item) => renderBreweryResult(item));
+  $('.js-search-results').html(results);
+}
 
-//Render function
+//Render functions
+
 function renderResult(data) {
   console.log(data);
   
@@ -46,21 +48,35 @@ function renderResult(data) {
         <img class="thumbnail js-thumbnail" src="${data.imgSmallMed}">
         <div class="modal" class="hide">
           <span class="close js-close"> &times; </span>
-          <img class="modal-content" src="">
+          <img class="modal-content-img" src="">
+          <img class="modal-content-img-2" src="https://images.unsplash.com/photo-1505075106905-fb052892c116?auto=format&fit=crop&w=1050&q=80">
+          <p class="modal-description">Boom! We've paired your trip to ${data.name} with this brewery</p>
         </div>   
       </div>
 
       </div>
     `;
-
   }
 }
 
-function renderBrewery(data) {
-  return `
-  <img class="brew-thumbnail js-thumbnail2" src="${data.imgSmallMed}">
-  `;
+function renderBreweryResult(data) {
+
+  // return `
+  // <span>${data.brewery.id}</span>
+  // `;
+
+  // if (data.brewery.images.medium !== undefined) {
+
 }
+
+// return `
+// <div class="js-result">
+//   <span>${data.brewery.name}</span>
+// </div>
+// `
+// <img class="brew-thumbnail js-thumbnail2" src="${data.brewery.images.medium}">
+
+
 
 
 //jQuery scroll content
@@ -90,16 +106,15 @@ function watchBrewifySubmit () {
         return res.json();
       }).then(brewData => {
         console.log(brewData);
-
+        // displayBreweryData(brewData);
       })
       .catch(function(err){
         console.log('This went wrong:', err);
       });
 
     let source = $(event.target).closest('.js-result').find('.js-thumbnail').attr('src');
-    // console.log($(this).attr('src'));
     console.log(source);
-    $('.modal-content').attr('src', source);
+    $('.modal-content-img').attr('src', source);
     $('.lightbox').show();
     $('.modal').show();
   });
