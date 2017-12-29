@@ -46,11 +46,12 @@ function renderResult(data) {
 
     <div class="lightbox hide">
         <img class="thumbnail js-thumbnail" src="${data.imgSmallMed}">
+        <a href="${data.url}" class="grab-url"></a>
         <div class="modal" class="hide">
           <span class="close js-close"> &times; </span>
           <img class="modal-content-img" src="">
           <img class="modal-content-img-2" src="https://images.unsplash.com/photo-1505075106905-fb052892c116?auto=format&fit=crop&w=1050&q=80">
-          <p class="modal-description hide">Boom! We've paired your trip to <span class="modal-description-highlight">${data.name}</span> with <a href="" target="_blank" class="href-here"><span class="random-brewery-description modal-description-highlight-2"></span></a> for your journey's end!</p>
+          <p class="modal-description hide">Boom! We've paired your trip to <a href="" target="_blank" class="href-here-2"> <span class="modal-description-highlight">${data.name}</span></a> with <a href="" target="_blank" class="href-here"><span class="random-brewery-description modal-description-highlight-2"></span></a> for your journey's end!</p>
         </div>   
       </div>
     </div>
@@ -123,6 +124,9 @@ function watchBrewifySubmit () {
 
     let source2 = $(event.target).closest('.js-result').find('h3').text();
 
+    let source3 = $(event.target).closest('.js-result').find('.grab-url').attr('href');
+    console.log(source3);
+    $('.href-here-2').attr('href', source3);
     $('.modal-description-highlight').text(source2);
     $('.lightbox').show();
     $('.modal').show();
