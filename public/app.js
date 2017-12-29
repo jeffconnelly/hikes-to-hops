@@ -20,19 +20,39 @@ function displayTrailsData(data) {
 //   const results = 
 // }
 
-
+let source;
 //Render function
 function renderResult(data) {
   console.log(data);
+  console.log(data.imgSmallMed);
+  
+  // console.log($(this.imgSmallMed).attr('src'));
+  // let source = $().attr('src');
 
   if (data.imgSmallMed !== '') {
+    // let source = $(data.imgSmallMed).attr('src');
+    // console.log(source);
+    source = data.imgSmallMed;
+    console.log(source);
+
+
     return ` 
     <h3>${data.name}</h3>
     <p>${data.summary}</p>
     <img class="trails-thumbnail js-thumbnail" src="${data.imgSmallMed}">
 
     <button type="button" class="js-brewify-btn">Brewify!</button>
+
+
+    <div class="lightbox hide">
+        <img class="thumbnail js-thumbnail" src="${data.imgSmallMed}">
+        <div class="modal" class="hide">
+          <span class="close js-close"> &times; </span>
+          <img class="modal-content" src="">
+        </div>   
+      </div>
     `;
+
   }
 }
 
@@ -75,6 +95,12 @@ function watchBrewifySubmit () {
       .catch(function(err){
         console.log('This went wrong:', err);
       });
+
+    // let source = $(this).attr('src');
+    // console.log($(this).attr('src'));
+    $('.modal-content').attr('src', source);
+    $('.lightbox').show();
+    $('.modal').show();
   });
 }
 
@@ -109,6 +135,14 @@ function handleSubmit (searchTerm) {
   });
 }
 
+function lightBoxCloseListener() {
+  $('.js-search-results').on('click', '.js-close', function(event) {
+    $('.modal').hide();
+    $('.lightbox').hide();
+  });
+}
+
 
 $(watchSubmit);
 $(watchBrewifySubmit);
+$(lightBoxCloseListener);
