@@ -17,7 +17,9 @@ function displayTrailsData(data) {
 
 function displayBreweryData(data) {
   console.log(data);
-  const results = data.data.map((item) => renderBreweryResult(item));
+  let randomItem = data.data[Math.floor(Math.random()*data.data.length)];
+  console.log(randomItem);
+  // let randomItem = results[Math.floor(Math.random()*results.length)];
   // $('.js-search-results').html(results);
 }
 
