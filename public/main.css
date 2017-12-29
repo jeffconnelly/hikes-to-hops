@@ -76,7 +76,7 @@ animation-timing-function: ease-out;
   height: 2.5em;
   width: 300px;
   border-radius:.5em;
-  color:#777;;
+  color:#777;
   font-size:1.1em;
   text-align: center;
 }
@@ -134,9 +134,63 @@ input[type=text]:focus{
 	}
 }
 
+
+/*----- Body CSS -----*/
+
+h2 {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 2.5em;
+  letter-spacing: 20px;
+  color: #55c57a
+}
+
+h3 {
+  font-size: 2em;
+}
+
+.trail-result {
+  margin-top: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
+  position: relative;
+  margin-bottom: 40px;
+  border: 1px solid #aaa;
+  padding: 20px;
+
+}
+
+.trails-thumbnail {
+  display: inline-block;
+  margin-top: 20px;
+  width: 400px;
+  max-height: 400px;
+  border: 10px double #28b485;
+  box-shadow: 8px 8px 10px #aaa;
+}
+
+.btn {
+  width: 200px;
+  height: 50px;
+  border-radius: 100px;
+  position: absolute;
+  right: 25%;
+  top: 50%;
+  color:#ffffff;
+  background-color: #28b485;
+  -moz-border-radius:28px;
+  -webkit-border-radius:28px;
+  font-size:25px;
+  text-shadow:0px 0px 15px black;
+}
+
+.btn:hover {
+	background-color: rgba(245, 223, 134, 0.8);
+}
+
+
+
 /*----- Modal CSS -----*/
-
-
 .modal {
   display: none;
   position: fixed;
@@ -229,11 +283,8 @@ input[type=text]:focus{
   to {transform:scale(1)}
 }
 
-/* Bonus stuff */
 
-.trails-thumbnail {
-  display: block;
-  margin: 30px;
-  width: 400px;
-  max-height: 400px;
-}
+
+
+
+/* Bonus stuff */

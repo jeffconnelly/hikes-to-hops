@@ -36,12 +36,12 @@ function renderResult(data) {
 
     return ` 
 
-    <div class="js-result">
+    <div class="js-result trail-result">
     <h3>${data.name}</h3>
     <p>${data.summary}</p>
     <img class="trails-thumbnail js-thumbnail" src="${data.imgSmallMed}">
 
-    <button type="button" class="js-brewify-btn">Brewify!</button>
+    <button type="button" class="js-brewify-btn btn btn-white btn-animated">Brewify!</button>
 
 
     <div class="lightbox hide">
@@ -58,26 +58,6 @@ function renderResult(data) {
     `;
   }
 }
-
-function renderBreweryResult(data) {
-
-  // return `
-  // <span>${data.brewery.id}</span>
-  // `;
-
-  // if (data.brewery.images.medium !== undefined) {
-
-}
-
-// return `
-// <div class="js-result">
-//   <span>${data.brewery.name}</span>
-// </div>
-// `
-// <img class="brew-thumbnail js-thumbnail2" src="${data.brewery.images.medium}">
-
-
-
 
 //jQuery scroll content
 let position = $('.result-content').offset().top;
