@@ -83,6 +83,7 @@ animation-timing-function: ease-out;
 
 input[type=text]:focus{
    outline:none;
+   
   }
 
 @keyframes moveInLeft {

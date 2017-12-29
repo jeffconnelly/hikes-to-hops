@@ -23,7 +23,7 @@
       </h1>
 
       <form class="location">
-          <input type="text" class="location-input" placeholder="Enter a City or Address">
+          <input type="text" onfocus="if(this.value == 'Enter a City or Address') { this.value = ''; }" value="Enter a City or Address" onblur="if(this.value == '') { this.value = 'Enter a City or Address'; }" class="location-input">
         </form>
      
       </div>
