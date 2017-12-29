@@ -136,6 +136,7 @@ input[type=text]:focus{
 
 /*----- Modal CSS -----*/
 
+
 .modal {
   display: none;
   position: fixed;
@@ -177,6 +178,13 @@ input[type=text]:focus{
 .hide {
   display: none;
 }
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* Bonus stuff */
 
 .trails-thumbnail {
   display: block;
