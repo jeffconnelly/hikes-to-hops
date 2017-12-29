@@ -188,12 +188,16 @@ input[type=text]:focus{
   color: white;
 }
 
+.modal-description-highlight-2 {
+  color: white;
+}
+
 .random-brewery-description {
-  left: 10%;
+  left: 20%;
   color: white;
   animation-name: fadeIn;
   /* animation-delay: 2s; */
-  animation-duration: 6s;
+  animation-duration: 1s;
 }
 
 @keyframes fadeIn {

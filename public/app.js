@@ -18,7 +18,6 @@ function displayTrailsData(data) {
 function createBreweryItem(data) {
   console.log(data);
   let randomItem = data.data[Math.floor(Math.random()*data.data.length)];
-  console.log(randomItem);
   // $('.js-search-results').html(results);
   return randomItem;
 }
@@ -51,9 +50,7 @@ function renderResult(data) {
           <span class="close js-close"> &times; </span>
           <img class="modal-content-img" src="">
           <img class="modal-content-img-2" src="https://images.unsplash.com/photo-1505075106905-fb052892c116?auto=format&fit=crop&w=1050&q=80">
-          <div class="hidden-text">
-          <p class="modal-description hide">Boom! We've paired your trip to <span class="modal-description-highlight">${data.name}</span> with <span class="random-brewery-description modal-description-highlight"></span> for your journey's end!</p>
-          </div>
+          <p class="modal-description hide">Boom! We've paired your trip to <span class="modal-description-highlight">${data.name}</span> with <a href="" target="_blank" class="href-here"><span class="random-brewery-description modal-description-highlight-2"></span></a> for your journey's end!</p>
         </div>   
       </div>
     </div>
@@ -112,7 +109,9 @@ function watchBrewifySubmit () {
       })
       .then(randomItem => {
         console.log(randomItem);
+        console.log(randomItem.brewery.website);
         $('.random-brewery-description').text(randomItem.brewery.name);
+        $('.href-here').attr('href', randomItem.brewery.website);
       })
       .catch(function(err){
         console.log('This went wrong:', err);
