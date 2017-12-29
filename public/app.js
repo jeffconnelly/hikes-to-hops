@@ -15,12 +15,12 @@ function displayTrailsData(data) {
   $('.js-search-results').html(results);
 }
 
-function displayBreweryData(data) {
+function createBreweryItem(data) {
   console.log(data);
   let randomItem = data.data[Math.floor(Math.random()*data.data.length)];
   console.log(randomItem);
-  // let randomItem = results[Math.floor(Math.random()*results.length)];
   // $('.js-search-results').html(results);
+  return randomItem;
 }
 
 //Render functions
@@ -28,7 +28,6 @@ function displayBreweryData(data) {
 function renderResult(data) {
   console.log(data);
   
-
   if (data.imgSmallMed !== '') {
     // let source = $(data.imgSmallMed).attr('src');
     // console.log(source);
@@ -52,7 +51,7 @@ function renderResult(data) {
           <span class="close js-close"> &times; </span>
           <img class="modal-content-img" src="">
           <img class="modal-content-img-2" src="https://images.unsplash.com/photo-1505075106905-fb052892c116?auto=format&fit=crop&w=1050&q=80">
-          <p class="modal-description">Boom! We've paired your trip to <span class="modal-description-highlight">${data.name}</span> with this brewery for your journey's end!</p>
+          <p class="modal-description">Boom! We've paired your trip to <span class="modal-description-highlight">${data.name}</span> with <span class="random-brewery-description modal-description-highlight"></span> for your journey's end!</p>
         </div>   
       </div>
     </div>
@@ -107,7 +106,11 @@ function watchBrewifySubmit () {
         return res.json();
       }).then(brewData => {
         console.log(brewData);
-        displayBreweryData(brewData);
+        return createBreweryItem(brewData);
+      })
+      .then(randomItem => {
+        console.log(randomItem);
+        $('.random-brewery-description').text(randomItem.brewery.name);
       })
       .catch(function(err){
         console.log('This went wrong:', err);
