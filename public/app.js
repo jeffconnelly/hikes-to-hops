@@ -18,7 +18,7 @@ function displayTrailsData(data) {
 function displayBreweryData(data) {
   console.log(data);
   const results = data.data.map((item) => renderBreweryResult(item));
-  $('.js-search-results').html(results);
+  // $('.js-search-results').html(results);
 }
 
 //Render functions
@@ -50,11 +50,10 @@ function renderResult(data) {
           <span class="close js-close"> &times; </span>
           <img class="modal-content-img" src="">
           <img class="modal-content-img-2" src="https://images.unsplash.com/photo-1505075106905-fb052892c116?auto=format&fit=crop&w=1050&q=80">
-          <p class="modal-description">Boom! We've paired your trip to ${data.name} with this brewery</p>
+          <p class="modal-description">Boom! We've paired your trip to <span class="modal-description-highlight">${data.name}</span> with this brewery for your journey's end!</p>
         </div>   
       </div>
-
-      </div>
+    </div>
     `;
   }
 }
@@ -106,7 +105,7 @@ function watchBrewifySubmit () {
         return res.json();
       }).then(brewData => {
         console.log(brewData);
-        // displayBreweryData(brewData);
+        displayBreweryData(brewData);
       })
       .catch(function(err){
         console.log('This went wrong:', err);
@@ -115,6 +114,10 @@ function watchBrewifySubmit () {
     let source = $(event.target).closest('.js-result').find('.js-thumbnail').attr('src');
     console.log(source);
     $('.modal-content-img').attr('src', source);
+
+    let source2 = $(event.target).closest('.js-result').find('h3').text();
+
+    $('.modal-description-highlight').text(source2);
     $('.lightbox').show();
     $('.modal').show();
   });

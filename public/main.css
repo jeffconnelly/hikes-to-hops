@@ -176,9 +176,14 @@ input[type=text]:focus{
 }
 
 .modal-description {
-  margin-top: 50px;
-  margin-left: 50px;
+  /* margin-top: 50px;
+  margin-left: 50px; */
   font-size: 1.5em;
+  margin: 50px 10% 50px 10%;
+}
+
+.modal-description-highlight {
+  color: white;
 }
 
 .close {
