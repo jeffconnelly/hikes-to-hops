@@ -20,23 +20,21 @@ function displayTrailsData(data) {
 //   const results = 
 // }
 
-let source;
 //Render function
 function renderResult(data) {
   console.log(data);
-  console.log(data.imgSmallMed);
   
-  // console.log($(this.imgSmallMed).attr('src'));
-  // let source = $().attr('src');
 
   if (data.imgSmallMed !== '') {
     // let source = $(data.imgSmallMed).attr('src');
     // console.log(source);
-    source = data.imgSmallMed;
-    console.log(source);
-
+    // source = this.imgSmallMed;
+    // console.log(source);
+    console.log(data.imgSmallMed);
 
     return ` 
+
+    <div class="js-result">
     <h3>${data.name}</h3>
     <p>${data.summary}</p>
     <img class="trails-thumbnail js-thumbnail" src="${data.imgSmallMed}">
@@ -50,6 +48,8 @@ function renderResult(data) {
           <span class="close js-close"> &times; </span>
           <img class="modal-content" src="">
         </div>   
+      </div>
+
       </div>
     `;
 
@@ -96,8 +96,9 @@ function watchBrewifySubmit () {
         console.log('This went wrong:', err);
       });
 
-    // let source = $(this).attr('src');
+    let source = $(event.target).closest('.js-result').find('.js-thumbnail').attr('src');
     // console.log($(this).attr('src'));
+    console.log(source);
     $('.modal-content').attr('src', source);
     $('.lightbox').show();
     $('.modal').show();
