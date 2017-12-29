@@ -6,6 +6,9 @@ Medium green: #55c57a
 Dark green: #28b485
  */
 
+
+
+/*----- Whole Page CSS -----*/
 * {
 	margin: 0;
 	padding: 0;
@@ -20,6 +23,8 @@ body {
 	color: #777;
 	padding: 30px;
 }
+
+/*----- Header CSS -----*/
 
 header {
 	height: 95vh;
@@ -51,8 +56,6 @@ animation-duration: 1s;
 animation-timing-function: ease-out;
 }
 
-
-
 .header-box {
 	position: absolute;
 	top: 40%;
@@ -65,7 +68,7 @@ animation-timing-function: ease-out;
 	display: block;
 	font-size: 20px;
 	font-weight: 700;
-	letter-spacing: 17.4px;
+	letter-spacing: 13.4px;
 	animation: moveInRight 1s ease-out;
 }
 
@@ -79,7 +82,6 @@ animation-timing-function: ease-out;
 }
 
 input[type=text]:focus{
-
    outline:none;
   }
 
@@ -126,6 +128,8 @@ input[type=text]:focus{
 		transform: translate(0);
 	}
 }
+
+/*----- Header CSS -----*/
 
 
 .trails-thumbnail {
