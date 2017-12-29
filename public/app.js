@@ -30,6 +30,12 @@ function renderResult(data) {
   }
 }
 
+function renderBrewery(data) {
+  return `
+  <img class="brew-thumbnail js-thumbnail2" src="${data.imgSmallMed}">
+  `
+}
+
 //Event listeners
 function watchSubmit () {
   $('.location').submit(event => {
@@ -46,12 +52,13 @@ function watchBrewifySubmit () {
     event.preventDefault();
     console.log('clicked!');
     fetch(`
-    http://api.brewerydb.com/v2/search/geo/point?key=a46cc55cb2a68b32c91f696bc888b5e5lat=35.772096&lng=-78.638614
+    http://api.brewerydb.com/v2/search/geo/point/?key=a46cc55cb2a68b32c91f696bc888b5e5&lat=${lat}&lng=${long}&radius=5
     `)
       .then(res => {
         return res.json();
       }).then(brewData => {
         console.log(brewData);
+
       })
       .catch(function(err){
         console.log('This went wrong:', err);
