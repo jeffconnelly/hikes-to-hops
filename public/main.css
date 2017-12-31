@@ -48,7 +48,8 @@ header {
 
 .primary-header-main {
 display: block;
-font-size: 60px;
+margin-bottom: 20px;
+font-size: 50px;
 font-weight: 400;
 letter-spacing: 35px;
 animation-name: moveInLeft;
@@ -57,7 +58,8 @@ animation-timing-function: ease-out;
 }
 
 .header-box {
-	position: absolute;
+  position: absolute;
+  max-width: 800px;
 	top: 40%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -66,7 +68,7 @@ animation-timing-function: ease-out;
 
 .primary-header-sub {
 	display: block;
-	font-size: 20px;
+	font-size: 18px;
 	font-weight: 700;
 	letter-spacing: 13.4px;
 	animation: moveInRight 1s ease-out;
@@ -171,11 +173,11 @@ h3 {
 }
 
 .btn {
-  width: 200px;
-  height: 50px;
+  width: 300px;
+  height: 60px;
   border-radius: 100px;
   position: absolute;
-  right: 25%;
+  right: 20%;
   top: 50%;
   color:#ffffff;
   background-color: #28b485;
@@ -186,7 +188,7 @@ h3 {
 }
 
 .btn:hover {
-	background-color: rgba(245, 223, 134, 0.8);
+	background-color:#55c57a;
 }
 
 /*----- Modal CSS -----*/
@@ -294,7 +296,16 @@ h3 {
 	background-size: cover;
 	background-position: top;
 	position: relative;
-	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+	clip-path: polygon(0 0, 0 0, 100% 100%,0 100%);
+}
+
+.author-text {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  color: white;
+  letter-spacing: 1.2px;
+  font-size: 1.1em;
 }
 
 

@@ -41,7 +41,7 @@ function renderResult(data) {
     <p>${data.summary}</p>
     <img class="trails-thumbnail js-thumbnail" src="${data.imgSmallMed}">
 
-    <button type="button" class="js-brewify-btn btn btn-white btn-animated">Brewify!</button>
+    <button type="button" class="js-brewery-btn btn btn-white btn-animated">Pair your brewery!</button>
 
 
     <div class="lightbox hide">
@@ -76,8 +76,8 @@ function watchSubmit () {
 }
 
 //Needs CORS enabled to work!
-function watchBrewifySubmit () {
-  $('.js-search-results').on('click', '.js-brewify-btn', event => {
+function watchBrewerySubmit () {
+  $('.js-search-results').on('click', '.js-brewery-btn', event => {
     event.preventDefault();
     console.log('clicked!');
     fetch(`
@@ -155,5 +155,5 @@ function lightBoxCloseListener() {
 
 
 $(watchSubmit);
-$(watchBrewifySubmit);
+$(watchBrewerySubmit);
 $(lightBoxCloseListener);
