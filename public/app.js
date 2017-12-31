@@ -75,6 +75,7 @@ function watchSubmit () {
   });
 }
 
+//Needs CORS enabled to work!
 function watchBrewifySubmit () {
   $('.js-search-results').on('click', '.js-brewify-btn', event => {
     event.preventDefault();
