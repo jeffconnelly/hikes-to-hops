@@ -83,12 +83,7 @@ function watchBrewerySubmit () {
     console.log('clicked!');
     fetch(`
     http://api.brewerydb.com/v2/search/geo/point/?key=a46cc55cb2a68b32c91f696bc888b5e5&lat=${lat}&lng=${long}&radius=5
-    `, {
-      mode: 'cors',
-      header: {
-        'Access-Control-Allow-Origin':'*',
-      }
-    })
+    `)
       .then(res => {
         return res.json();
       }).then(brewData => {

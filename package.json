@@ -1,0 +1,27 @@
+{
+  "name": "jc-api-hack",
+  "version": "1.0.0",
+  "description": "Trail's End ",
+  "main": "server.js",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "morgan": "^1.9.0",
+    "unirest": "^0.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeffconnelly/journeys-end-api-capstone.git"
+  },
+  "author": "Jeff Connelly",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeffconnelly/journeys-end-api-capstone/issues"
+  },
+  "homepage": "https://github.com/jeffconnelly/journeys-end-api-capstone#readme"
+}
