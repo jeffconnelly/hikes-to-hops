@@ -6,13 +6,20 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const app = express();
 
+// app.use(cors());
+
+
+// app.use(function (req, res, next) {
+  // res.header('Access-Control-Allow-Origin', '*');
+//   res.header('Access-Control-Allow-Headers', 'Content-Type');
+//   res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE');
+//   next();
+// });
+
+
 app.use(morgan('common'));
 app.use(express.static('public')); 
-app.use(bodyParser.json()); // parse JSON body
-app.use(cors());
-
-
-let result;
+app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
   console.log('request made!');
