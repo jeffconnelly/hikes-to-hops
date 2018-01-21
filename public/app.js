@@ -1,14 +1,13 @@
 'use strict';
 /* global $ */
 
-
-//Api Call functions
+// *** Api Call functions *** //
 let url = 'https://www.hikingproject.com/data/get-trails';
 const key = '200199905-b7938b4b6909a70a6393d4285aca8a47';
 let lat = '';
 let long = '';
 
-//Display functions for render
+// *** Display functions for Render *** //
 function displayTrailsData(data) {
   console.log(data);
   const results = data.trails.map((item) => renderResult(item));
@@ -22,18 +21,12 @@ function createBreweryItem(data) {
   return randomItem;
 }
 
-//Render functions
-
+// *** Render functions *** //
 function renderResult(data) {
   console.log(data);
   
   if (data.imgSmallMed !== '') {
-    // let source = $(data.imgSmallMed).attr('src');
-    // console.log(source);
-    // source = this.imgSmallMed;
-    // console.log(source);
     console.log(data.imgSmallMed);
-
     return ` 
 
     <div class="js-result trail-result">
@@ -42,7 +35,6 @@ function renderResult(data) {
     <img class="trails-thumbnail js-thumbnail" src="${data.imgSmallMed}">
 
     <button type="button" class="js-brewery-btn btn btn-white btn-animated">Pair your brewery!</button>
-
 
     <div class="lightbox hide">
         <img class="thumbnail js-thumbnail" src="${data.imgSmallMed}">
@@ -59,11 +51,10 @@ function renderResult(data) {
   }
 }
 
-//jQuery scroll content
+// *** jQuery scroll content *** //
 let position = $('.result-content').offset().top;
 
-
-//Event listeners
+// *** Event listeners *** //
 function watchSubmit () {
   $('.location').submit(event => {
     event.preventDefault();
@@ -75,7 +66,7 @@ function watchSubmit () {
   });
 }
 
-//Needs CORS enabled to work!
+// CORS Anywhere proxy URL solves CORS issue
 function watchBrewerySubmit () {
   let proxyUrl = 'https://cors-anywhere.herokuapp.com/';
   $('.js-search-results').on('click', '.js-brewery-btn', event => {
@@ -152,7 +143,6 @@ function lightBoxCloseListener() {
     $('.lightbox').hide();
   });
 }
-
 
 $(watchSubmit);
 $(watchBrewerySubmit);
