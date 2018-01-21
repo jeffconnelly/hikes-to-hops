@@ -77,11 +77,11 @@ function watchSubmit () {
 
 //Needs CORS enabled to work!
 function watchBrewerySubmit () {
-  let proxyUrl = 'http://localhost:1337';
+  let proxyUrl = 'https://cors-anywhere.herokuapp.com/';
   $('.js-search-results').on('click', '.js-brewery-btn', event => {
     event.preventDefault();
     console.log('clicked!');
-    fetch(`${proxyUrl}/api.brewerydb.com/v2/search/geo/point/?key=a46cc55cb2a68b32c91f696bc888b5e5&lat=${lat}&lng=${long}&radius=5
+    fetch(`${proxyUrl}api.brewerydb.com/v2/search/geo/point/?key=a46cc55cb2a68b32c91f696bc888b5e5&lat=${lat}&lng=${long}&radius=5
     `)
       .then(res => {
         return res.json();
