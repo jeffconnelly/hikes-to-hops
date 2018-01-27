@@ -29,12 +29,13 @@ function renderResult(data) {
     console.log(data.imgSmallMed);
     return ` 
 
-    <div class="js-result trail-result">
+    <section class="js-result trail-result">
+    <div class='section-info'>
     <h3>${data.name}</h3>
     <p>${data.summary}</p>
     <img class="trails-thumbnail js-thumbnail" src="${data.imgSmallMed}">
-
     <button type="button" class="js-brewery-btn btn btn-white btn-animated">Pair your brewery!</button>
+    </div>
 
     <div class="lightbox hide">
         <img class="thumbnail js-thumbnail" src="${data.imgSmallMed}">
@@ -46,7 +47,7 @@ function renderResult(data) {
           <p class="modal-description hide">Boom! We've paired your trip to <a href="" target="_blank" class="href-here-2"> <span class="modal-description-highlight">${data.name}</span></a> with <a href="" target="_blank" class="href-here"><span class="random-brewery-description modal-description-highlight-2"></span></a> for your journey's end!</p>
         </div>   
       </div>
-    </div>
+    </section>
     `;
   }
 }
