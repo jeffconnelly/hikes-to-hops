@@ -317,6 +317,14 @@ h3 {
   margin-left: 5%;
 }
 
+.primary-header-main {
+  font-size: 40px;
+}
+
+.primary-header-sub {
+  font-size: 14px;
+}
+
 .js-brewery-btn {
   display: block;
   max-width: 50%;
@@ -327,13 +335,10 @@ h3 {
   position: relative;
 }
 
-h3 {
-  display: inline block;
-}
-
 .trail-result {
   max-height: 550px;
 }
+
 .h2-wrapper {
   margin-bottom: 100px;
 }
