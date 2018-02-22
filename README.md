@@ -2,7 +2,6 @@
 
 Hikes to Hops is an app that searches for local trails and will pair your trail of choice with a nearby brewery for your victory lap!  
 
-
 ## Link To Deployed App
 
 - You can view the live app at https://hikes-to-hops.herokuapp.com/ 
@@ -10,9 +9,9 @@ Hikes to Hops is an app that searches for local trails and will pair your trail 
 ## Tech Stack
 
 * Front End: HTML5, CSS3, jQuery.
-* Apis Used: Google Map's Geolocation API, the Hiking Project API, and the BreweryDB API.
+* APIs Used: Google Map's Geolocation API, the Hiking Project API, and the BreweryDB API.
 
-##Screenshots 
+## Screenshots 
 
 - Header 
 
