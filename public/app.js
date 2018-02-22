@@ -7,6 +7,20 @@ const key = '200199905-b7938b4b6909a70a6393d4285aca8a47';
 let lat = '';
 let long = '';
 
+let proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+
+fetch(`${proxyUrl}https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=39.7392358%20-104.990251&radius=1500&type=museum&keyword=cruise&key=AIzaSyBS5s8KvxI26NzQa2TSgdWZGlGwG_7LPaE`)
+  .then(res => {
+    return res.json();
+  }).then(trailsData => {
+    console.log(trailsData);
+    console.log('fetching data');
+    // displayTrailsData(trailsData);
+  })
+  .catch(function(err){
+    console.log('This went wrong:', err);
+  });
+
 // *** Display functions for Render *** //
 function displayTrailsData(data) {
   console.log(data);
